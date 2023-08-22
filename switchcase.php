@@ -56,7 +56,7 @@
     </form>
     
     <?php
-    if(isset($_POST['choice1'])){
+    /*if(isset($_POST['choice1'])){
       $choice = $_POST["choice1"];
       switch($choice) {  //for rate
         case "Milk":
@@ -68,7 +68,7 @@
           break;
 
           case "Coffee":
-            echo "Tea Rate : 20";
+            echo "Coffee Rate : 20";
             break;
 
             case "Lemon Tea";
@@ -81,10 +81,28 @@
         default:
           echo "No Choices here...";
       }
+    }*/
+//match expression
+
+    if(isset($_POST['choice1'])){
+      $choice = $_POST["choice1"];
+
+      $cho = match($choice)
+      {
+        "Milk" => "Milk Rate : 10",
+        "Tea" => "Tea Rate : 12",
+        "Coffee" => "Coffee Rate : 20",
+        "Lemon Tea" => "Lemon Tea : 25",
+        "Green Tea" => "Green Tea : 30",
+        default => "Please select"
+      };
+
+      echo $cho;
+
     }
-
-
     ?>
+
+
   </div>
 </body>
 </html>
